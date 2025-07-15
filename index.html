@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelBloom</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet" />
+</head>
+<body style="background-image: url('assets/images/background.jpg'); background-size: cover; background-position: center; height: 100vh;">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/icons/logo_icon.png" alt="Logo" />
+      <span>TravelBloom</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Enter a destination or keyword" />
+      <button onclick="searchKeyword()">Search</button>
+      <button onclick="clearResults()">Clear</button>
+    </div>
+  </nav>
+  <div id="results"></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>EXPLORE<br />DREAM<br />DESTINATION</h1>
+      <p>
+        It encourages exploration of unfamiliar territories, embracing diverse cultures and landscapes,
+        while pursuing the desired destination that captivates the heart and ignites a sense of wonder.
+      </p>
+      <a href="#" class="btn">BOOK NOW</a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#"><img src="assets/icons/twitter_logo.png" alt="Twitter" /></a>
+      <a href="#"><img src="assets/icons/facebook-logo.png" alt="Facebook" /></a>
+      <a href="#"><img src="assets/icons/instagram_logo.png " alt="Instagram" /></a>
+      <a href="#"><img src="assets/icons/youtube_logo.png" alt="YouTube" /></a>
+    </div>
+  </section>
+
+  <script src="js/travel_recommendation.js"></script>
+</body>
+</html>
