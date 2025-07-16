@@ -113,7 +113,7 @@ body {
 }
 .about-page {
   height: 100vh;
-  background: url('../assets/images/background.jpg') no-repeat center center/cover;
+  background: url('../images/images/background.jpg') no-repeat center center/cover;
   padding: 100px 40px 40px 40px;
   position: relative;
   color: white;
@@ -184,7 +184,7 @@ body {
 }
 .contact-page {
   height: 100vh;
-  background: url('../assets/images/background.jpg') no-repeat center center/cover;
+  background: url('../images/images/background.jpg') no-repeat center center/cover;
   padding: 100px 40px 40px 40px;
   position: relative;
   color: white;
