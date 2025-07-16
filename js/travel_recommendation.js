@@ -1,6 +1,7 @@
+// Fetch data from JSON
 async function fetchData() {
   try {
-    const response = await fetch('travel_api.json');
+    const response = await fetch('data/travel_recommendation_api.json');
     const data = await response.json();
     console.log("Fetched data:", data);
     return data;
@@ -10,6 +11,7 @@ async function fetchData() {
   }
 }
 
+// Keyword Search Logic
 async function searchKeyword() {
   const keyword = document.getElementById('searchInput').value.toLowerCase().trim();
   const resultsContainer = document.getElementById('results');
@@ -23,8 +25,28 @@ async function searchKeyword() {
   const data = await fetchData();
   const matchedResults = [];
 
- 
+  // Search in countries > cities
+  data.countries.forEach(country => {
+    if (country.name.toLowerCase().includes(keyword)) {
+      country.cities.forEach(city => matchedResults.push({
+        name: city.name,
+        imageUrl: city.imageUrl,
+        description: city.description
+      }));
+    } else {
+      country.cities.forEach(city => {
+        if (city.name.toLowerCase().includes(keyword) || city.description.toLowerCase().includes(keyword)) {
+          matchedResults.push({
+            name: city.name,
+            imageUrl: city.imageUrl,
+            description: city.description
+          });
+        }
+      });
+    }
+  });
 
+  // Search in temples
   if (keyword.includes("temple") || keyword === "temples") {
     data.temples.forEach(temple => matchedResults.push({
       name: temple.name,
@@ -43,6 +65,7 @@ async function searchKeyword() {
     });
   }
 
+  // Search in beaches
   if (keyword.includes("beach") || keyword === "beaches") {
     data.beaches.forEach(beach => matchedResults.push({
       name: beach.name,
@@ -61,6 +84,7 @@ async function searchKeyword() {
     });
   }
 
+  // Display results
   if (matchedResults.length === 0) {
     resultsContainer.innerHTML = "<p>No results found.</p>";
     return;
@@ -78,11 +102,13 @@ async function searchKeyword() {
   });
 }
 
+// Clear Button Logic
 function clearResults() {
   document.getElementById('searchInput').value = '';
   document.getElementById('results').innerHTML = '';
 }
 
+// Show Country Time (Optional)
 function showTimeIn(timeZone, label) {
   const options = {
     timeZone,
